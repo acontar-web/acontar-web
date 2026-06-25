@@ -1,0 +1,654 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ACONTAR - Soluciones Empresariales Inteligentes</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    color:#222;
+    background:#fff;
+}
+
+/* ================= MENU ================= */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.logo-nav{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-nav img{
+    width:55px;
+}
+
+.logo-texto h3{
+    color:#217346;
+}
+
+.logo-texto span{
+    font-size:12px;
+    color:#666;
+}
+
+.menu{
+    display:flex;
+    gap:40px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#333;
+    font-weight:600;
+}
+
+.menu a:hover{
+    color:#217346;
+}
+
+.btn-nav{
+    background:#25D366;
+    color:#fff;
+    text-decoration:none;
+    padding:14px 25px;
+    border-radius:30px;
+    font-weight:bold;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    text-align:center;
+    padding:80px 30px 40px;
+}
+
+.logo-principal{
+    width:140px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:72px;
+    color:#217346;
+}
+
+.hero h2{
+    font-size:48px;
+    margin:20px 0;
+}
+
+.verde{
+    color:#217346;
+}
+
+.hero p{
+    font-size:22px;
+    color:#555;
+    max-width:800px;
+    margin:0 auto 40px;
+}
+
+.botones{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn-principal,
+.btn-secundario{
+    padding:18px 35px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.btn-principal{
+    background:#25D366;
+    color:white;
+}
+
+.btn-secundario{
+    border:2px solid #217346;
+    color:#217346;
+}
+
+/* ================= IMAGEN SISTEMA ================= */
+
+.demo-sistema{
+    padding:40px;
+}
+
+.demo-sistema img{
+    width:100%;
+    max-width:1300px;
+    display:block;
+    margin:auto;
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+    opacity:1;
+    transform:scale(1);
+
+    transition:
+        opacity 1s ease-in-out,
+        transform 1s ease-in-out;
+}
+
+/* ================= SERVICIOS ================= */
+
+.servicios{
+    background:#f7f7f7;
+    padding:80px 40px;
+}
+
+.servicios h2{
+    text-align:center;
+    color:#217346;
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+.subtitulo{
+    text-align:center;
+    color:#666;
+    max-width:700px;
+    margin:0 auto 60px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:#fff;
+    padding:40px 30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.icono{
+    font-size:50px;
+    margin-bottom:20px;
+}
+.card{
+    background:#fff;
+    padding:40px 30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    text-decoration:none;
+    color:inherit;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+
+
+.icono{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    color:#217346;
+    margin-bottom:15px;
+}
+/* ================= NOSOTROS ================= */
+
+.nosotros{
+    padding:80px 40px;
+    background:#fff;
+}
+
+.nosotros h2{
+    text-align:center;
+    color:#217346;
+    font-size:45px;
+    margin-bottom:60px;
+}
+
+/* ================= CONTACTO ================= */
+
+.contacto{
+    padding:80px 40px;
+}
+
+.contacto h2{
+    text-align:center;
+    color:#217346;
+    font-size:45px;
+    margin-bottom:50px;
+}
+
+.contacto-contenedor{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+    max-width:900px;
+    margin:auto;
+}
+
+.contacto-card{
+    background:#217346;
+    color:white;
+    text-decoration:none;
+    padding:30px 25px;
+    border-radius:18px;
+    text-align:center;
+    transition:.3s;
+}
+
+.contacto-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+}
+
+.icono-contacto{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.contacto-card h3{
+    margin-bottom:12px;
+    font-size:28px;
+}
+
+.contacto-card p{
+    font-size:18px;
+}
+/* ================= FOOTER ================= */
+
+footer{
+    background:#14532d;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+/* ================= WHATSAPP ================= */
+
+.whatsapp-float{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    padding:18px 28px;
+    border-radius:40px;
+    font-weight:bold;
+}
+
+/* ================= RESPONSIVE MOVIL ================= */
+
+@media (max-width: 768px){
+
+    /* MENU */
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+        padding:20px;
+        text-align:center;
+        height:auto;
+    }
+
+    .menu{
+        width:100%;
+        justify-content:center;
+        gap:25px;
+        flex-wrap:wrap;
+    }
+
+    .btn-nav{
+        width:100%;
+        max-width:250px;
+        text-align:center;
+    }
+
+    /* HERO */
+
+    .hero{
+        padding:60px 20px 30px;
+    }
+
+    .logo-principal{
+        width:100px;
+    }
+
+    .hero h1{
+        font-size:42px;
+        line-height:1.1;
+    }
+
+    .hero h2{
+        font-size:28px;
+        line-height:1.3;
+    }
+
+    .hero p{
+        font-size:18px;
+        padding:0 10px;
+    }
+
+    .botones{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .btn-principal,
+    .btn-secundario{
+        width:100%;
+        max-width:320px;
+        text-align:center;
+    }
+
+    /* IMAGEN SISTEMA */
+
+    .demo-sistema{
+        padding:20px 15px 60px;
+    }
+
+    .demo-sistema img{
+        border-radius:15px;
+    }
+
+    /* SERVICIOS */
+
+    .servicios{
+        padding:60px 20px;
+    }
+
+    .servicios h2{
+        font-size:35px;
+    }
+
+    .subtitulo{
+        font-size:17px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    /* NOSOTROS */
+    .nosotros{
+    padding:60px 20px;
+}
+
+.nosotros h2{
+    font-size:35px;
+}
+
+    /* CONTACTO */
+
+    .contacto{
+        padding:60px 20px;
+    }
+
+    .contacto h2{
+        font-size:35px;
+    }
+
+    .contacto-contenedor{
+        grid-template-columns:1fr;
+    }
+
+    /* BOTON FLOTANTE */
+
+    .whatsapp-float{
+        right:15px;
+        bottom:15px;
+        padding:15px 22px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo-nav">
+    <img src="logo.jpg">
+
+    <div class="logo-texto">
+        <h3>Acontar</h3>
+        <span>SOLUCIONES EMPRESARIALES INTELIGENTES</span>
+    </div>
+</div>
+
+<div class="menu">
+    <a href="#servicios">Servicios</a>
+    <a href="#contacto">Contacto</a>
+    <a href="https://finovaofficial.carrd.co/" target="_blank">Finova POS</a>
+</div>
+
+<a class="btn-nav"
+href="https://wa.me/573126509155"
+target="_blank">
+WhatsApp
+</a>
+
+</nav>
+
+<section class="hero">
+
+<img src="logo.jpg" class="logo-principal">
+
+<h1>ACONTAR</h1>
+
+<h2>
+Soluciones empresariales
+<span class="verde">inteligentes</span>
+</h2>
+
+<p>
+Tecnología, automatización y control para impulsar tu negocio.
+</p>
+
+<div class="botones">
+
+<a href="https://wa.me/573126509155"
+class="btn-principal"
+target="_blank">
+Contáctanos por WhatsApp
+</a>
+
+<a href="#servicios"
+class="btn-secundario">
+Ver servicios
+</a>
+
+</div>
+
+</section>
+
+<section class="demo-sistema">
+
+<img id="imagenCarrusel"
+src="interfaz.jpg">
+
+</section>
+
+<section id="servicios" class="servicios">
+
+<h2>Nuestros Servicios</h2>
+
+<p class="subtitulo">
+Soluciones tecnológicas y empresariales diseñadas para optimizar y hacer crecer tu negocio.
+</p>
+
+<div class="cards">
+
+<a href="https://finovaofficial.carrd.co/"
+   target="_blank"
+   class="card">
+
+    <div class="icono">💻</div>
+    <h3>FINOVA POS</h3>
+    <p>Sistema de punto de venta profesional.</p>
+
+</a>
+
+<div class="card">
+<div class="icono">👨‍💼</div>
+<h3>Nómina</h3>
+<p>Gestión de empleados y pagos.</p>
+</div>
+
+<div class="card">
+<div class="icono">📊</div>
+<h3>Seguridad Social</h3>
+<p>Control de aportes y obligaciones.</p>
+</div>
+
+<div class="card">
+<div class="icono">📈</div>
+<h3>Consultoría</h3>
+<p>Asesoría para crecimiento empresarial.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="nosotros">
+
+    <h2>¿Por qué elegir ACONTAR?</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="icono">✅</div>
+            <h3>Experiencia</h3>
+            <p>Soluciones empresariales adaptadas a cada negocio.</p>
+        </div>
+
+        <div class="card">
+            <div class="icono">⚡</div>
+            <h3>Automatización</h3>
+            <p>Procesos más rápidos y eficientes para ahorrar tiempo.</p>
+        </div>
+
+        <div class="card">
+            <div class="icono">🤝</div>
+            <h3>Acompañamiento</h3>
+            <p>Asesoría y soporte continuo para nuestros clientes.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="contacto" class="contacto">
+
+<h2>Contáctanos</h2>
+
+<div class="contacto-contenedor">
+
+<a href="https://wa.me/573126509155"
+   target="_blank"
+   class="contacto-card">
+
+    <div class="icono-contacto">📱</div>
+    <h3>WhatsApp</h3>
+    <p>+57 312 650 9155</p>
+
+</a>
+
+<a href="mailto:contacto.acontar@gmail.com"
+   class="contacto-card">
+
+    <div class="icono-contacto">📧</div>
+    <h3>Correo electrónico</h3>
+    <p>contacto.acontar@gmail.com</p>
+
+</a>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 ACONTAR - Todos los derechos reservados
+</footer>
+
+<a class="whatsapp-float"
+href="https://wa.me/573126509155"
+target="_blank">
+WhatsApp
+</a>
+
+<script>
+
+const imagenes = [
+    "interfaz.jpg",
+    "productos.jpg",
+    "productos2.jpg",
+    "pago.jpg"
+];
+
+let indice = 0;
+
+const imagen = document.getElementById("imagenCarrusel");
+
+setInterval(() => {
+
+    // efecto salida
+    imagen.style.opacity = "0";
+    imagen.style.transform = "scale(0.96)";
+
+    setTimeout(() => {
+
+        indice = (indice + 1) % imagenes.length;
+
+        imagen.src = imagenes[indice];
+
+        // efecto entrada
+        imagen.style.opacity = "1";
+        imagen.style.transform = "scale(1)";
+
+    },1000);
+
+},5000);
+
+</script>
+</body>
+</html>
+```
